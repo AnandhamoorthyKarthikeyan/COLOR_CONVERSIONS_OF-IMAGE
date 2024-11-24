@@ -51,8 +51,8 @@ Load an image from your local directory and display it.
 ### Step8:
 	Save the final modified image to your local directory.
 ```
-Developed By: THRIKESHWAR P
-Register Number: 212222230162
+Developed By: ANANDHAMOORTHY.K
+Register Number: 212222100004
 ```
 # Program:
 
