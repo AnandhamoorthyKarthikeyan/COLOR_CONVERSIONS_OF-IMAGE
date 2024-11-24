@@ -51,8 +51,8 @@ Load an image from your local directory and display it.
 ### Step8:
 	Save the final modified image to your local directory.
 ```
-Developed By: ANANDHAMOORTHY.K
-Register Number: 212222100004
+Developed By: THRIKESHWAR P
+Register Number: 212222230162
 ```
 # Program:
 
@@ -60,297 +60,255 @@ Register Number: 212222100004
 
 ```Python
 import cv2
-image=cv2.imread('loki.jpg')
-cv2.imshow('Image Window', image)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+import matplotlib.pyplot as plt
+img = cv2.imread('lk.webp', cv2.IMREAD_COLOR)
+img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+plt.imshow(img_rgb, cmap='viridis')   for RGB images
+plt.title("Original Image")
+plt.axis('off')  
+plt.show()
 ``` 
  
 
 ### OUTPUT:
-![Screenshot 2024-09-11 155935](https://github.com/user-attachments/assets/41bb929b-1493-4531-9f60-14f19c6a10a7)
+![image](https://github.com/user-attachments/assets/f0678048-1e29-4113-b286-933ac12423e2)
+
+
+
+
 ### 2.) Draw Shapes and Add Text:
 i)Draw a line from the top-left to the bottom-right of the image.
 
 ```Python
-import cv2
-img = cv2.imread('loki.jpg')
-img=cv2.resize(img,(600,800))
-res = cv2.line(img, (0, 0), (599, 799), (200, 100, 205), 10)
-cv2.imshow('Image Window', res)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-
-
+image = cv2.imread('lk.webp') 
+img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+img_rgb.shape
+line_img = cv2.line(img_rgb, (0, 0), (1200, 900), (255, 0, 0), 2)
+plt.imshow(line_img, cmap='viridis')  
+plt.title("Image with Line")
+plt.axis('off')  
+plt.show()
 ```
 <br>
 <br>
 
 
 ### OUTPUT:
-![Screenshot 2024-09-10 112851](https://github.com/user-attachments/assets/9b99afea-b8f3-4c2c-95f5-eccd340b4630)
+![image](https://github.com/user-attachments/assets/f9de134c-1682-4ca5-9d74-faa4a97ddf28)
 
-### ii)Draw Shapes and Add Text
-```Python
-import cv2
-
-
-img = cv2.imread('loki.jpg')
-img1=cv2.resize(img,(600,800))
-
-
-height, width, _ = img1.shape
-
-
-center_coordinates = (width // 2, height // 2)
-
-
-res = cv2.circle(img1, center_coordinates, 150, (255, 0, 0), 10)
-
-cv2.imshow('Image Window', res)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-
-
-```
-<br>
-<br>
-
-
-### OUTPUT:
-![Screenshot 2024-09-10 114719](https://github.com/user-attachments/assets/4f8860ab-2044-4b9e-965d-5378aa089014)
-  
-### iii)Draw a rectangle around a specific region of interest in the image.
-```Python
-
-import cv2
-img = cv2.imread('loki.jpg')
-img1=cv2.resize(img,(600,800))
-start=(0,0)
-stop=(409,529)
-color=(100,255,100)
-thickness=10
-res_img=cv2.rectangle(img1,start,stop,color,thickness)
-
-cv2.imshow('Image Window', res_img)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-```
- <br>
- <br>
-
-### OUTPUT:
-![Screenshot 2024-09-10 114736](https://github.com/user-attachments/assets/81205664-f568-4b7b-b850-9e35180cb360)
 
  
+### ii)Draw Shapes and Add Text
+```Python
+img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+img_rgb.shape
+circle_img = cv2.circle(img_rgb,(600,450),150,(255,0,0),10)
+plt.imshow(circle_img, cmap='viridis')  
+plt.title("Image with Circle")
+plt.axis('off')  
+plt.show()
+```
+<br>
+<br>
+
+
+### OUTPUT:
+![image](https://github.com/user-attachments/assets/1b2f7b01-a25c-474e-95c7-d7ba005fd52f)
+
+### iii)Draw a rectangle around a specific region of interest in the image.
+```Python
+img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+img_rgb.shape
+rectangle_img = cv2.rectangle(img_rgb, (0, 0), (1200, 900), (0, 0, 255), 10)
+plt.imshow(rectangle_img, cmap='viridis')  
+plt.title("Image with Rectangle")
+plt.axis('off')  
+plt.show()
+```
+ <br>
+ <br>
+
+### OUTPUT:
+![image](https://github.com/user-attachments/assets/7b680000-ce70-48d4-a1c6-2ae8c99275b4)
+
 ### iv)Add the text "OpenCV Drawing" at the top-left corner of the image.
 
  ```Python
-import cv2
-
-img = cv2.imread('loki.jpg')
-img1=cv2.resize(img,(600,800))
-
-text = "OPENCV DRAWING"
-position = (50, 50)  # Positioning the text at the top-left corner
-
-font = cv2.FONT_HERSHEY_SIMPLEX
-font_scale = 1
-color = (255, 255, 255)  # White color
-thickness = 2
-
-
-res = cv2.putText(img1, text, position, font, font_scale, color, thickness, cv2.LINE_AA)
-
-
-cv2.imshow('Image Window', res)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-
-
+img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+img_rgb.shape
+text_img = cv2.putText(img_rgb, "OpenCV Drawing", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 10)
+plt.imshow(text_img, cmap='viridis')  
+plt.title("Image with Text")
+plt.axis('off')  
+plt.show()
 ```
 <br>
 <br>
 
     
 ### OUTPUT:
+![image](https://github.com/user-attachments/assets/eb9066c2-cc76-4584-b510-2271fa798da0)
 
-![Screenshot 2024-09-10 114746](https://github.com/user-attachments/assets/e5648615-d962-4009-abac-a8eead002fd2)
+
+
+
 
 ### 3)Image Color Conversion
 i)Convert the image from RGB to HSV and display it.
 ```Python
-import cv2
-img = cv2.imread('loki.jpg')
-img = cv2.resize(img,(300,200))
-cv2.imshow('Original Image',img)
-BGR = cv2.cvtColor(img,cv2.COLOR_HSV2BGR)
-cv2.imshow('HSV2RGB',BGR)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+img_rgb.shape
+plt.imshow(image_rgb)
+plt.title("Original RGB Image")
+plt.axis("off")
 ```
 
 
 ### OUTPUT:
-![Screenshot 2024-09-10 115429](https://github.com/user-attachments/assets/11677c8a-230e-4d92-8450-1e9cdc83574f)
+![image](https://github.com/user-attachments/assets/e6228b7e-4cd9-4b9a-acf1-34aecefd2f7f)
+
+
 
 #### ii.)Convert the image from RGB to GRAY and display it.
 ```Python
-import cv2
-img = cv2.imread('loki.jpg')
-img = cv2.resize(img,(300,200))
-cv2.imshow('Original Image',img)
-gray2 = cv2.cvtColor(img,cv2.COLOR_RGB2GRAY)
-cv2.imshow('RGB2GRAY',gray2)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+image_gray = cv2.cvtColor(image_rgb, cv2.COLOR_RGB2GRAY)
+plt.imshow(image_gray, cmap='gray')
+plt.title("Grayscale Image")
+plt.axis("off")
 ```
 
 ### Output:
-![Screenshot 2024-09-10 115457](https://github.com/user-attachments/assets/e0ce4173-b727-4391-b3ec-adcf14bc8d36)
+![image](https://github.com/user-attachments/assets/f3deb616-fba1-4e40-bd3b-f2715899a951)
+
+
 
 
 #### iii.)Convert the image from RGB to YCrCb and display it.
 ```Python
-import cv2
-img = cv2.imread('loki.jpg')
-img = cv2.resize(img,(300,200))
-cv2.imshow('Original Image',img)
-YCrCb1 = cv2.cvtColor(img, cv2.COLOR_BGR2YCrCb)
-cv2.imshow('RGB-2-YCrCb',YCrCb1)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+image_ycrcb = cv2.cvtColor(image_rgb, cv2.COLOR_RGB2YCrCb)
+plt.imshow(image_ycrcb)
+plt.title("YCrCb Image")
+plt.axis("off")
 
 ```
 ### Output:
-![Screenshot 2024-09-10 115513](https://github.com/user-attachments/assets/b7181fff-db8b-43da-8c07-70c502f0a20d)
+![image](https://github.com/user-attachments/assets/4de1acbd-c009-4d1e-a157-1c053b3c937e)
+
+
 
 #### iv.)Convert the HSV image back to RGB and display it.
 ```Python
-import cv2
-img = cv2.imread('loki.jpg')
-img = cv2.resize(img,(300,200))
-cv2.imshow('Original Image',img)
-BGR = cv2.cvtColor(img,cv2.COLOR_HSV2BGR)
-cv2.imshow('HSV2RGB',BGR)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+image_hsv_to_rgb = cv2.cvtColor(image_hsv, cv2.COLOR_HSV2RGB)
+plt.imshow(image_hsv_to_rgb)
+plt.title("HSV to RGB Image")
+plt.axis("off")
 ```
 <br>
 <br>
 
 ### Output:
-![Screenshot 2024-09-10 115525](https://github.com/user-attachments/assets/f2b96b6c-d53a-4b81-b733-cbb955b62704)
+![image](https://github.com/user-attachments/assets/cd43ce68-4ce4-4c7b-980c-cc5637b83f60)
+
+
+
 
 ## 4. Access and Manipulate Image Pixels:
 ```Python
-import cv2
-img = cv2.imread('loki.jpg')
-img = cv2.resize(img, (300, 200))
-cv2.imshow('Original Image', img)
-pixel_value = img[100, 100]
-print(f"Pixel value at (100, 100): {pixel_value}")
-img[199, 199] = [255, 255, 255]
-cv2.imshow('Modified Image', img)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-
+image[200:500, 200:500] = [255, 255, 255]
+image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+plt.imshow(image_rgb)
+plt.title("Image with 300x300 White Block")
+plt.axis("off")
+plt.show()
 ```
 <br>
 <br>
 
 ### Output:
-![Screenshot 2024-09-10 115543](https://github.com/user-attachments/assets/f6d9a0f3-776c-4a2a-bcb7-661a01af6bef)
+![image](https://github.com/user-attachments/assets/73a10b4f-e6f7-4f7f-bb2f-d8f4f677ed6a)
+
+
 
 ## 5. Image Resizing:
 ```Python
-import cv2
-img = cv2.imread('loki.jpg')
-width=600
-height=800
-half_width=300
-half_height=400
-resized_img = cv2.resize(img, (300, 400))
-cv2.imshow('Original',image)
-cv2.imshow('resized',resized_img)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-
+resized_image = cv2.resize(image, (1200 // 2, 900 // 2))
+resized_image_rgb = cv2.cvtColor(resized_image, cv2.COLOR_BGR2RGB)
+resized_image_rgb.shape
+plt.imshow(resized_image_rgb)
+plt.title("Resized Image (Half Size)")
+plt.axis("off")
+plt.show()
 ```
 <br>
 <br>
 
 ### Output:
-![Screenshot 2024-09-10 115559](https://github.com/user-attachments/assets/86ac976b-5fa6-4516-b579-bfe1ecf2d057)
+![image](https://github.com/user-attachments/assets/218240c3-194f-4635-90d5-7dc51a76592c)
+
+
 
 ## 6.Image Cropping:
 ```Python
-import cv2
-img = cv2.imread('loki.jpg')
-img1=cv2.resize(image1,(600,800))
-x, y = 50, 50
-width, height = 100, 100
-roi = image1[y:y + height, x:x + width]
-cv2.imshow('Cropped Image', roi)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+roi = image[50:350, 50:350]
+roi_rgb = cv2.cvtColor(roi, cv2.COLOR_BGR2RGB)
+plt.imshow(roi_rgb)
+plt.title("Cropped Region of Interest (ROI)")
+plt.axis("off")
+plt.show()
 ```
 <br>
 <br>
 
 ### Output:
-![Screenshot 2024-09-10 115628](https://github.com/user-attachments/assets/d5142047-8a21-453b-8e22-47d68656aa9c)
+![image](https://github.com/user-attachments/assets/600a4d56-8c02-43b2-8c75-504eb06a11e7)
+
+
+
+
 
 ## 7.Image Flipping:
 i.)Flip the original image horizontally and display it.
 ```Python
-import cv2
-img = cv2.imread('loki.jpg')
-img = cv2.resize(img,(300,200))
-res=cv2.rotate(img,cv2.ROTATE_180)
-cv2.imshow('Original',img)
-cv2.imshow('Image Window', res)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+flipped_horizontally = cv2.flip(image, 1)
+flipped_horizontally_rgb = cv2.cvtColor(flipped_horizontally, cv2.COLOR_BGR2RGB)
+plt.imshow(flipped_horizontally_rgb)
+plt.title("Flipped Horizontally")
+plt.axis("off")
 ```
 <br>
 <br>
 
 ### Output:
-![Screenshot 2024-09-11 150845](https://github.com/user-attachments/assets/fa770b8d-ea78-4c39-b9c4-d0d15e68ed59)
+![image](https://github.com/user-attachments/assets/68c12d2b-0e49-4044-9f8d-470ea1132d3a)
+
+
+
+
+
 
 #### ii.)Flip the original image vertically and display it.
 
 ```Python
-import cv2
-img = cv2.imread('loki.jpg')
-img1=cv2.resize(img,(600,800))
-img = cv2.resize(img1,(300,200))
-res=cv2.rotate(img,cv2.ROTATE_90_CLOCKWISE)
-cv2.imshow('Original',img)
-cv2.imshow('Image Window', res)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-
+flipped_vertically = cv2.flip(image, 0)
+flipped_vertically_rgb = cv2.cvtColor(flipped_vertically, cv2.COLOR_BGR2RGB)
+plt.imshow(flipped_vertically_rgb)
+plt.title("Flipped Vertically")
+plt.axis("off")
 ```
 <br>
 <br>
 
 ### Output:
-![Screenshot 2024-09-11 150917](https://github.com/user-attachments/assets/7fb57d99-411a-42da-a7b8-081e70a37423)
+![image](https://github.com/user-attachments/assets/176b0bb3-4fe9-46a4-a10f-15c28948f833)
 
-## 8. Write and Save the Modified Image:
-```Python
-import cv2
-img = cv2.imread('loki.jpg')
-img = cv2.resize(img,(300,200))
-cv2.imwrite('lokesh1.jpg',img)
-```
-<br>
-<br>
 
-### Output:
-![Screenshot 2024-09-10 115054](https://github.com/user-attachments/assets/edc8170d-4543-4a79-879f-f1a8b06a29b1)
 
 ## Result:
 Thus the images are read, displayed, and written ,and color conversion was performed  successfully using the python program.
+
+
+
+
+
+
+
